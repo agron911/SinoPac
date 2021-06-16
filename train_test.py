@@ -9,9 +9,9 @@ df =pd.read_csv('worth_org.csv')
 
 df1=df.T
 fileTrain = 'Train1.csv'
-train = np.array(df1.loc['A06':'A32'].index)
+train = np.array(df1.loc['646':'668'].index)
 fileTest = 'Test1.csv'
-Test = np.array(df1.loc['A02':'A02'].index)
+Test = np.array(df1.loc['668':'668'].index)
 
 
 Worth_file = open(fileTrain, 'w')

@@ -12,12 +12,12 @@ plt.rcParams['font.sans-serif']=['Microsoft JhengHei']
 plt.rcParams['axes.unicode_minus']=False
 
 
-batch_size = 5
+batch_size = 4
 epochs = 50
 time_step = 6  # 用幾組天數預測
 input_size = 10  #預測天數
 look_back = time_step * input_size
-showdays = 120 #測試天數
+showdays = 140 #測試天數
 
 X_train = []
 y_train = []
