@@ -9,9 +9,9 @@ df =pd.read_csv('worth_org.csv')
 
 df1=df.T
 fileTrain = 'Train1.csv'
-train = np.array(df1.loc['646':'668'].index)
+train = np.array(df1.loc['151':'159'].index)
 fileTest = 'Test1.csv'
-Test = np.array(df1.loc['668':'668'].index)
+Test = np.array(df1.loc['160':'160'].index)
 
 
 Worth_file = open(fileTrain, 'w')
@@ -28,9 +28,11 @@ for code in train:
 Worth_file.close()
 
 worth_test_file = open(fileTest, 'w')
-worth = df1.loc[Test]
-if len(worth) > 0:
-    worth_test_file.write(",".join(list(map(str, worth))))
-    worth_test_file.write("\n")
-    print('{} data downloaded'.format(Test))
+
+for code in Test:
+    worth = df1.loc[code]
+    if len(worth) > 0:
+        worth_test_file.write(",".join(list(map(str, worth))))
+        worth_test_file.write("\n")
+        print('{} data downloaded'.format(Test))
 worth_test_file.close()

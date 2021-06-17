@@ -5,7 +5,6 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM
 from matplotlib import pyplot as plt
-
 import matplotlib.font_manager
 
 plt.rcParams['font.sans-serif']=['Microsoft JhengHei']
@@ -14,17 +13,17 @@ plt.rcParams['axes.unicode_minus']=False
 
 batch_size = 4
 epochs = 50
-time_step = 6  # 用幾組天數預測
-input_size = 10  #預測天數
+time_step = 6 # 用6天來預測
+input_size = 15  #預測天數
 look_back = time_step * input_size
-showdays = 140 #測試天數
+showdays = 300  #測試天數
 
 X_train = []
 y_train = []
 X_validation = []
 y_validation = []
 testset = []  #保存測試基金淨值
-forget_days = 1
+forget_days = 5
 
 def create_dataset(dataset):
     dataX, dataY = [], []
