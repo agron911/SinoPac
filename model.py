@@ -14,16 +14,16 @@ plt.rcParams['axes.unicode_minus']=False
 batch_size = 4
 epochs = 50
 time_step = 6 # 用6天來預測
-input_size = 15  #預測天數
+input_size = 20  #預測天數
 look_back = time_step * input_size
-showdays = 300  #測試天數
+showdays = 1000  #測試天數
 
 X_train = []
 y_train = []
 X_validation = []
 y_validation = []
 testset = []  #保存測試基金淨值
-forget_days = 5
+forget_days = 3
 
 def create_dataset(dataset):
     dataX, dataY = [], []
