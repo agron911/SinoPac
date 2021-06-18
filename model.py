@@ -13,17 +13,17 @@ plt.rcParams['axes.unicode_minus']=False
 
 batch_size = 4
 epochs = 50
-time_step = 6 # 用6天來預測
-input_size = 20  #預測天數
+time_step = 6    # 用多少組的時間窗口預測
+input_size = 20  #預測天數，時間窗口大小
 look_back = time_step * input_size
-showdays = 1000  #測試天數
+showdays =  500 #測試天數，
 
 X_train = []
 y_train = []
 X_validation = []
 y_validation = []
 testset = []  #保存測試基金淨值
-forget_days = 3
+forget_days = 10 # 回退天數，復盤前10天的預測
 
 def create_dataset(dataset):
     dataX, dataY = [], []
@@ -119,7 +119,7 @@ with open(fileTest) as f:
             m = len(dataset) % input_size
             X_validation, y_validation = create_dataset(dataset[m:])
 
-#將輸入轉換成[樣本數，時間，特徵數]
+#將輸入轉換成[樣本數，時間，特徵數] [訓練數據中的序列數，序列長度，每個序列的特徵數]
 X_train = X_train.reshape(-1, time_step, input_size)
 X_validation = X_validation.reshape(-1, time_step, input_size)
 
